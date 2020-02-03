@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-    s.name              = 'NFCReader'
+    s.name              = 'dot-nfcreader'
     s.version           = '0.9.0'
-    s.summary           = 'dot'
+    s.summary           = 'NFCReader framework'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
@@ -10,8 +10,7 @@ Pod::Spec.new do |s|
 
     s.platform          = :ios
     s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/nfcreader/#{s.version}/NFCReader.framework.zip" }
-    s.ios.deployment_target = '9.0'
-    s.ios.vendored_frameworks = "NFCReader.framework"
+    s.ios.deployment_target = '10.0'
 end
 
 # '0.1' exact version 0.1
