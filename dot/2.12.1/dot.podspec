@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
     s.name              = 'dot'
-    s.version           = '2.12.1'
+    s.version           = '2.14.0'
     s.summary           = 'dot'
-    s.homepage          = 'https://goodrequest.com/'
+    s.homepage          = 'https://www.innovatrics.com'
 
-    s.author            = { 'Dominik Petho' => 'dominik.petho@goodrequest.com' }
+    s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
     s.license           = 'MIT'
 
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '10.1'
     s.ios.vendored_frameworks = "dot.framework"
 
-    s.ios.dependency 'iface', '~> 3.6.2'
+    s.ios.dependency 'iface', '~> 3.8.1'
 end
 
 # '0.1' exact version 0.1
