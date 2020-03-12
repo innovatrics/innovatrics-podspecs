@@ -5,13 +5,15 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = 'MIT and OpenSSL'
+    s.license           = 'MIT'
 
 
     s.platform          = :ios
     s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/nfcreader/#{s.version}/NFCReader.framework.zip" }
     s.ios.deployment_target = '10.1'
     s.ios.vendored_frameworks = "NFCReader.framework"
+
+    s.ios.dependency 'innovatrics-openssl', '~> 1.0.2'
 end
 
 # '0.1' exact version 0.1
