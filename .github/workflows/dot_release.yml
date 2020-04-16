@@ -17,18 +17,22 @@ jobs:
           pwd
           ls
       
-      - name: Release dot 5.0.0
+      - name: Release dot
         run: |
           cd dot_test
-          mkdir 5.0.0
-          cp dot_template.podspec 5.0.0/dot.podspec
-          cd 5.0.0
-          sed -i "s/{version}/5.0.0/g" dot.podspec
+          mkdir $DOT_VERSION || true
+          cp dot_template.podspec $DOT_VERSION/dot.podspec || true
+          cd $DOT_VERSION
+          sed -i "s/{version}/$DOT_VERSION/g" dot.podspec
+        env:
+          DOT_VERSION: github.event.client_payload.dot_version
           
       - name: Push changes
         run: |
           git config --global user.name 'Jakub Vallo'
           git config --global user.email 'jakub.vallo@innovatrics.com'
           git add *
-          git commit -m "[dot_release workflow] release dot 5.0.0"
+          git commit -m "[dot_release workflow] release dot $DOT_VERSION"
           git push
+        env:
+          DOT_VERSION: github.event.client_payload.dot_version
