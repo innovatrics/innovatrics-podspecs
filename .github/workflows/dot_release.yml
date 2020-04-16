@@ -16,3 +16,17 @@ jobs:
         run: |
           pwd
           ls
+      
+      - name: Release dot 5.0.0
+        run: |
+          cd dot_test
+          mkdir 5.0.0
+          cp dot_template.podspec 5.0.0/dot.podspec
+          cd 5.0.0
+          sed -i "s/{version}/5.0.0/g" dot.podspec
+          
+      - name: Push changes
+        run: |
+          git add *
+          git commit -m "[dot_release workflow] release dot 5.0.0"
+          git push
