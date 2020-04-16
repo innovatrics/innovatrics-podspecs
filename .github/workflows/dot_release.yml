@@ -27,6 +27,8 @@ jobs:
           
       - name: Push changes
         run: |
+          git config --global user.name 'Jakub Vallo'
+          git config --global user.email 'jakub.vallo@innovatrics.com'
           git add *
           git commit -m "[dot_release workflow] release dot 5.0.0"
           git push
