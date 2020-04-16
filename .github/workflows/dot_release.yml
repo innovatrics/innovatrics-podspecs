@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: dot_release
+
+on:
+  repository_dispatch:
+    types: dot_release
+jobs:
+  release:
+    name: Release DOT
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Add Podspec
+        run: echo Adding podspec...
+        
+      - name: Push to repo
+        run: echo pushing to repo
