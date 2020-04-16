@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: dot_release
 
 on:
@@ -11,11 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        
-      - name: Testing
-        run: |
-          pwd
-          ls
       
       - name: Release dot
         run: |
