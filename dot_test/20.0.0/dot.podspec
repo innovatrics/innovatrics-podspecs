@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot'
-    s.version           = '{version}'
+    s.version           = '20.0.0'
     s.summary           = 'dot'
     s.homepage          = 'https://www.innovatrics.com'
 
