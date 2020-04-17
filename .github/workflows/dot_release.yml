@@ -21,7 +21,7 @@ jobs:
           DOT_VERSION: "${{github.event.client_payload.dot_version}}"
       
       - name: Update iface dependancy version
-        if: github.event.client_payload.iface_version != "null"
+        if: github.event.client_payload.iface_version != 'null'
         run: |
           cd dot_test/$DOT_VERSION
           sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot.podspec
@@ -30,7 +30,7 @@ jobs:
           IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
       
       - name: Release iface
-        if: github.event.client_payload.iface_version != "null"
+        if: github.event.client_payload.iface_version != 'null'
         run: |
           cd iface_test
           mkdir $IFACE_VERSION || true
