@@ -25,7 +25,7 @@ jobs:
         run: |
           cd dot_test
           sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot_template.podspec
-          cd dot_test/$DOT_VERSION
+          cd $DOT_VERSION
           sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot.podspec
         env:
           DOT_VERSION: "${{github.event.client_payload.dot_version}}"
