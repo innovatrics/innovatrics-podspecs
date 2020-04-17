@@ -12,7 +12,7 @@ jobs:
       
       - name: Release dot
         run: |
-          cd dot_test
+          cd dot
           mkdir $DOT_VERSION || true
           cp dot_template.podspec $DOT_VERSION/dot.podspec || true
           cd $DOT_VERSION
@@ -23,7 +23,7 @@ jobs:
       - name: Update iface dependancy version
         if: github.event.client_payload.iface_version != 'null'
         run: |
-          cd dot_test
+          cd dot
           sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot_template.podspec
           cd $DOT_VERSION
           sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot.podspec
@@ -34,7 +34,7 @@ jobs:
       - name: Release iface
         if: github.event.client_payload.iface_version != 'null'
         run: |
-          cd iface_test
+          cd iface
           mkdir $IFACE_VERSION || true
           cp iface_template.podspec $IFACE_VERSION/iface.podspec || true
           cd $IFACE_VERSION
