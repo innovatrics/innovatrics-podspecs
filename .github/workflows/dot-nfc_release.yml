@@ -1,0 +1,31 @@
+name: dot-nfc_release
+
+on:
+  repository_dispatch:
+    types: dot-nfc_release
+jobs:
+  release:
+    name: Release dot-nfc
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Add podspec
+        run: |
+          cd dot-nfc
+          mkdir $DOT_NFC_VERSION || true
+          cp dot-nfc_template.podspec $DOT_NFC_VERSION/dot-nfc.podspec || true
+          cd $DOT_NFC_VERSION
+          sed -i "s/{version}/$DOT_NFC_VERSION/g" dot-nfc.podspec
+        env:
+          DOT_NFC_VERSION: "${{github.event.client_payload.dot_nfc_version}}"
+      
+      - name: Push changes
+        run: |
+          git config --global user.name 'Jakub Vallo'
+          git config --global user.email 'jakub.vallo@innovatrics.com'
+          git add *
+          git commit -m "[dot-nfc_release workflow] release dot-nfc $DOT_NFC_VERSION"
+          git push
+        env:
+          DOT_NFC_VERSION: "${{github.event.client_payload.dot_nfc_version}}"
