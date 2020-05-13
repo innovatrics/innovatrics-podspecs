@@ -1,8 +1,8 @@
-name: dot-nfc_release
+name: Release dot-nfc
 
 on:
   repository_dispatch:
-    types: dot-nfc_release
+    types: dot_nfc_release
 jobs:
   release:
     name: Release dot-nfc
