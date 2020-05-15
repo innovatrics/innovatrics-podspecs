@@ -1,0 +1,53 @@
+name: dot_release
+
+on:
+  repository_dispatch:
+    types: dot_release
+jobs:
+  release:
+    name: Release DOT
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Release dot
+        run: |
+          cd dot
+          mkdir $DOT_VERSION || true
+          cp dot_template.podspec $DOT_VERSION/dot.podspec || true
+          cd $DOT_VERSION
+          sed -i "s/{version}/$DOT_VERSION/g" dot.podspec
+        env:
+          DOT_VERSION: "${{github.event.client_payload.dot_version}}"
+      
+      - name: Update iface dependancy version
+        if: github.event.client_payload.iface_version != 'null'
+        run: |
+          cd dot
+          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot_template.podspec
+          cd $DOT_VERSION
+          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot.podspec
+        env:
+          DOT_VERSION: "${{github.event.client_payload.dot_version}}"
+          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
+      
+      - name: Release iface
+        if: github.event.client_payload.iface_version != 'null'
+        run: |
+          cd iface
+          mkdir $IFACE_VERSION || true
+          cp iface_template.podspec $IFACE_VERSION/iface.podspec || true
+          cd $IFACE_VERSION
+          sed -i "s/{version}/$IFACE_VERSION/g" iface.podspec
+        env:
+          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
+      
+      - name: Push changes
+        run: |
+          git config --global user.name 'Jakub Vallo'
+          git config --global user.email 'jakub.vallo@innovatrics.com'
+          git add *
+          git commit -m "[dot_release workflow] release dot $DOT_VERSION"
+          git push
+        env:
+          DOT_VERSION: "${{github.event.client_payload.dot_version}}"
