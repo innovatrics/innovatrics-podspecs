@@ -79,7 +79,7 @@ jobs:
           git config --global user.name 'Jakub Vallo'
           git config --global user.email 'jakub.vallo@innovatrics.com'
           git add *
-          git commit -m "[dot_release workflow] release dot $DOT_FACE_VERSION"
+          git commit -m "[dot-face_release workflow] release dot-face, dot-face-passive-liveness $DOT_FACE_VERSION"
           git push
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
