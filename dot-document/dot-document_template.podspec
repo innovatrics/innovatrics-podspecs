@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
     s.platform          = :ios
     s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-document/#{s.version}/DOTDocument.xcframework.zip" }
-    s.ios.deployment_target = '13.0'
+    s.ios.deployment_target = '10.0'
     s.ios.vendored_frameworks = "DOTDocument.xcframework"
 
     s.ios.dependency 'sam', '1.24.6'
