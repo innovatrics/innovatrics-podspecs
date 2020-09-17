@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-document'
-    s.version           = '{version}'
-    s.summary           = 'DOT Document Recognition Framework'
+    s.name              = 'sam'
+    s.version           = '2.0.0'
+    s.summary           = 'sam'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
@@ -9,11 +9,9 @@ Pod::Spec.new do |s|
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-document/#{s.version}/DOTDocument.xcframework.zip" }
-    s.ios.deployment_target = '10.0'
-    s.ios.vendored_frameworks = "DOTDocument.xcframework"
-
-    s.ios.dependency 'sam', '2.0.0'
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/sam/#{s.version}/sam.xcframework.zip" }
+    s.ios.deployment_target = '10.1'
+    s.ios.vendored_frameworks = "sam.xcframework"
 end
 
 # '0.1' exact version 0.1
