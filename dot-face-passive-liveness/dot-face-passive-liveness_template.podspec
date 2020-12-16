@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '10.1'
     s.ios.vendored_frameworks = "DOT.xcframework"
 
-    s.ios.dependency 'iface-passive-liveness', '3.13.1'
+    s.ios.dependency 'iface-passive-liveness', '3.13.2'
 end
 
 # '0.1' exact version 0.1

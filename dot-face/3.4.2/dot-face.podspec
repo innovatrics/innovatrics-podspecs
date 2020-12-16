@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-face'
-    s.version           = '{version}'
+    s.version           = '3.4.2'
     s.summary           = 'DOT Facial Recognition Framework'
     s.homepage          = 'https://www.innovatrics.com'
 
