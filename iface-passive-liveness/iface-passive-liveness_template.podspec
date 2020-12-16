@@ -9,10 +9,9 @@ Pod::Spec.new do |s|
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface-passive-liveness/#{s.version}/iface.framework.zip" }
-    # s.source_files      = "*", "DOT/*", "DOT.framework/Headers/*", "DOT.framework/*"
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface-passive-liveness/#{s.version}/iface.xcframework.zip" }
     s.ios.deployment_target = '10.1'
-    s.ios.vendored_frameworks = "iface.framework"
+    s.ios.vendored_frameworks = "iface.xcframework"
 
 end
 
