@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '10.0'
     s.ios.vendored_frameworks = "DotDocument.xcframework"
 
-    s.ios.dependency 'sam', '2.0.3'
+    s.ios.dependency 'sam', '2.0.2'
 end
 
 # '0.1' exact version 0.1
