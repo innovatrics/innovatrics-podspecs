@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-document'
-    s.version           = '{version}'
+    s.version           = '1.2.3'
     s.summary           = 'DOT Document Recognition Framework'
     s.homepage          = 'https://www.innovatrics.com'
 
