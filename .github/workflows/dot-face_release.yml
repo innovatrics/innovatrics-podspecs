@@ -45,9 +45,9 @@ jobs:
         if: github.event.client_payload.iface_version != 'null'
         run: |
           cd dot-face-passive-liveness
-          sed -i "s/    s.ios.dependency 'iface-passive-liveness'.*$/    s.ios.dependency 'iface-passive-liveness', '$IFACE_VERSION'/g" dot-face-passive-liveness_template.podspec
+          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-passive-liveness_template.podspec
           cd $DOT_FACE_VERSION
-          sed -i "s/    s.ios.dependency 'iface-passive-liveness'.*$/    s.ios.dependency 'iface-passive-liveness', '$IFACE_VERSION'/g" dot-face-passive-liveness.podspec
+          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-passive-liveness.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
           IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
@@ -60,17 +60,6 @@ jobs:
           cp iface_template.podspec $IFACE_VERSION/iface.podspec || true
           cd $IFACE_VERSION
           sed -i "s/{version}/$IFACE_VERSION/g" iface.podspec
-        env:
-          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
-      
-      - name: Release iface-passive-liveness
-        if: github.event.client_payload.iface_version != 'null'
-        run: |
-          cd iface-passive-liveness
-          mkdir $IFACE_VERSION || true
-          cp iface-passive-liveness_template.podspec $IFACE_VERSION/iface-passive-liveness.podspec || true
-          cd $IFACE_VERSION
-          sed -i "s/{version}/$IFACE_VERSION/g" iface-passive-liveness.podspec
         env:
           IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
       
