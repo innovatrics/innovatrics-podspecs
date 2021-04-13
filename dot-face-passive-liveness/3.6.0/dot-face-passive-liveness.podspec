@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-face'
-    s.version           = '{version}'
-    s.summary           = 'DOT Facial Recognition Framework'
+    s.name              = 'dot-face-passive-liveness'
+    s.version           = '3.6.0'
+    s.summary           = 'DOT Facial Recognition Framework, with passive liveness'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face/#{s.version}/dot.xcframework.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-passive-liveness/#{s.version}/dot.xcframework.zip" }
     s.ios.deployment_target = '10.1'
     s.ios.vendored_frameworks = "DOT.xcframework"
 
