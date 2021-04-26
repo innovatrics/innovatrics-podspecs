@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-face-passive-liveness'
+    s.name              = 'dot-face-core'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Face Passive Liveness'
+    s.summary           = 'DOT iOS Face Core'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
@@ -9,11 +9,11 @@ Pod::Spec.new do |s|
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-passive-liveness/#{s.version}/DotFacePassiveLiveness.xcframework.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-core/#{s.version}/DotFaceCore.xcframework.zip" }
     s.ios.deployment_target = '10.0'
-    s.ios.vendored_frameworks = "DotFacePassiveLiveness.xcframework"
+    s.ios.vendored_frameworks = "DotFaceCore.xcframework"
 
-    s.ios.dependency 'dot-face-detection', '{version}'
+    s.ios.dependency 'iface', '4.8.0'
 end
 
 # '0.1' exact version 0.1
