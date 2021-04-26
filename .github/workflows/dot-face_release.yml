@@ -1,22 +1,42 @@
-name: Release dot-face, dot-face-passive-liveness
+name: Release dot-face
 
 on:
   repository_dispatch:
     types: dot_face_release
 jobs:
   release:
-    name: Release dot-face, dot-face-passive-liveness
+    name: Release dot-face
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       
-      - name: Release dot-face
+      - name: Release dot-face-core
         run: |
-          cd dot-face
+          cd dot-face-core
           mkdir $DOT_FACE_VERSION || true
-          cp dot-face_template.podspec $DOT_FACE_VERSION/dot-face.podspec || true
+          cp dot-face-core_template.podspec $DOT_FACE_VERSION/dot-face-core.podspec || true
           cd $DOT_FACE_VERSION
-          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face.podspec
+          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-core.podspec
+        env:
+          DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
+          
+      - name: Release dot-face-detection
+        run: |
+          cd dot-face-detection
+          mkdir $DOT_FACE_VERSION || true
+          cp dot-face-detection_template.podspec $DOT_FACE_VERSION/dot-face-detection.podspec || true
+          cd $DOT_FACE_VERSION
+          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-detection.podspec
+        env:
+          DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
+          
+      - name: Release dot-face-verification
+        run: |
+          cd dot-face-verification
+          mkdir $DOT_FACE_VERSION || true
+          cp dot-face-verification_template.podspec $DOT_FACE_VERSION/dot-face-verification.podspec || true
+          cd $DOT_FACE_VERSION
+          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-verification.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
       
@@ -29,25 +49,24 @@ jobs:
           sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-passive-liveness.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
-      
-      - name: Update iface dependancy version for dot-face
-        if: github.event.client_payload.iface_version != 'null'
+          
+      - name: Release dot-face-active-liveness
         run: |
-          cd dot-face
-          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face_template.podspec
+          cd dot-face-active-liveness
+          mkdir $DOT_FACE_VERSION || true
+          cp dot-face-active-liveness_template.podspec $DOT_FACE_VERSION/dot-face-active-liveness.podspec || true
           cd $DOT_FACE_VERSION
-          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face.podspec
+          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-active-liveness.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
-          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
       
-      - name: Update iface dependancy version for dot-face-passive-liveness
+      - name: Update iface dependency version for dot-face-core
         if: github.event.client_payload.iface_version != 'null'
         run: |
-          cd dot-face-passive-liveness
-          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-passive-liveness_template.podspec
+          cd dot-face-core
+          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-core_template.podspec
           cd $DOT_FACE_VERSION
-          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-passive-liveness.podspec
+          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-core.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
           IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
@@ -68,7 +87,7 @@ jobs:
           git config --global user.name 'Jakub Vallo'
           git config --global user.email 'jakub.vallo@innovatrics.com'
           git add *
-          git commit -m "[dot-face_release workflow] release dot-face, dot-face-passive-liveness $DOT_FACE_VERSION"
+          git commit -m "[dot-face_release workflow] release dot-face $DOT_FACE_VERSION"
           git push
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
