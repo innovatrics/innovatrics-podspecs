@@ -50,13 +50,13 @@ jobs:
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
           
-      - name: Release dot-face-active-liveness
+      - name: Release dot-face-eye-gaze-liveness
         run: |
-          cd dot-face-active-liveness
+          cd dot-face-eye-gaze-liveness
           mkdir $DOT_FACE_VERSION || true
-          cp dot-face-active-liveness_template.podspec $DOT_FACE_VERSION/dot-face-active-liveness.podspec || true
+          cp dot-face-eye-gaze-liveness_template.podspec $DOT_FACE_VERSION/dot-face-eye-gaze-liveness.podspec || true
           cd $DOT_FACE_VERSION
-          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-active-liveness.podspec
+          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-eye-gaze-liveness.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
       
