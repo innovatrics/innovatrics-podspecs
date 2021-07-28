@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-face-active-liveness'
+    s.name              = 'dot-face-eye-gaze-liveness'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Face Active Liveness'
+    s.summary           = 'DOT iOS Face Eye Gaze Liveness'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
@@ -9,9 +9,9 @@ Pod::Spec.new do |s|
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-active-liveness/#{s.version}/DotFaceActiveLiveness.xcframework.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-eye-gaze-liveness/#{s.version}/DotFaceEyeGazeLiveness.xcframework.zip" }
     s.ios.deployment_target = '10.0'
-    s.ios.vendored_frameworks = "DotFaceActiveLiveness.xcframework"
+    s.ios.vendored_frameworks = "DotFaceEyeGazeLiveness.xcframework"
 
     s.ios.dependency 'dot-face-detection', '{version}'
 end
