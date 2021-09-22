@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = 'MIT'
+    s.license           = { :type => 'Innovatrics License', :file => 'DotDocument/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-document/#{s.version}/DotDocument.xcframework.zip" }
-    s.ios.deployment_target = '10.0'
-    s.ios.vendored_frameworks = "DotDocument.xcframework"
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-document/#{s.version}/DotDocument.zip" }
+    s.ios.deployment_target = '11.0'
+    s.ios.vendored_frameworks = 'DotDocument/DotDocument.xcframework'
 
     s.ios.dependency 'sam', '2.0.2'
 end

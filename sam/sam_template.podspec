@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = 'MIT'
+    s.license           = { :type => 'Innovatrics License', :file => 'Sam/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/sam/#{s.version}/sam.xcframework.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/sam/#{s.version}/Sam.zip" }
     s.ios.deployment_target = '10.1'
-    s.ios.vendored_frameworks = "sam.xcframework"
+    s.ios.vendored_frameworks = "Sam/sam.xcframework"
 end
 
 # '0.1' exact version 0.1
