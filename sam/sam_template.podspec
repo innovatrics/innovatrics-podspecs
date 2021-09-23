@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics License', :file => 'Sam/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'Sam/LICENSE' }
 
 
     s.platform          = :ios
