@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = 'MIT'
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'IFace/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface/#{s.version}/iface.xcframework.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface/#{s.version}/IFace.zip" }
     s.ios.deployment_target = '10.1'
-    s.ios.vendored_frameworks = "iface.xcframework"
+    s.ios.vendored_frameworks = "IFace/iface.xcframework"
 
 end
 

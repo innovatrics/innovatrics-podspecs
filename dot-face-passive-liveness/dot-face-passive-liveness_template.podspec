@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = 'MIT'
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFacePassiveLiveness/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-passive-liveness/#{s.version}/DotFacePassiveLiveness.xcframework.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-passive-liveness/#{s.version}/DotFacePassiveLiveness.zip" }
     s.ios.deployment_target = '11.0'
-    s.ios.vendored_frameworks = "DotFacePassiveLiveness.xcframework"
+    s.ios.vendored_frameworks = "DotFacePassiveLiveness/DotFacePassiveLiveness.xcframework"
 
     s.ios.dependency 'dot-face-detection', '{version}'
 end

@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = 'MIT'
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceDetection/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-detection/#{s.version}/DotFaceDetection.xcframework.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-detection/#{s.version}/DotFaceDetection.zip" }
     s.ios.deployment_target = '11.0'
-    s.ios.vendored_frameworks = "DotFaceDetection.xcframework"
+    s.ios.vendored_frameworks = "DotFaceDetection/DotFaceDetection.xcframework"
 
     s.ios.dependency 'dot-face-core', '{version}'
 end

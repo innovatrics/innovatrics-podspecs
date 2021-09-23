@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-document'
     s.version           = '{version}'
-    s.summary           = 'DOT Document Recognition Framework'
+    s.summary           = 'DOT iOS Document'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
