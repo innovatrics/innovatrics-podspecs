@@ -1,19 +1,17 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-nfc'
-    s.version           = '{version}'
-    s.summary           = 'NFCReader framework'
+    s.name              = 'innovatrics-openssl'
+    s.version           = '1.0.4'
+    s.summary           = 'OpenSSL framework'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = 'MIT'
+    s.license           = 'OpenSSL'
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-nfc/#{s.version}/NFCReader.xcframework.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/innovatrics-openssl/#{s.version}/innovatrics-openssl.xcframework.zip" }
     s.ios.deployment_target = '10.1'
-    s.ios.vendored_frameworks = "NFCReader.xcframework"
-
-    s.ios.dependency 'innovatrics-openssl', '~> 1.0.4'
+    s.ios.vendored_frameworks = "OpenSSL.xcframework"
 end
 
 # '0.1' exact version 0.1
