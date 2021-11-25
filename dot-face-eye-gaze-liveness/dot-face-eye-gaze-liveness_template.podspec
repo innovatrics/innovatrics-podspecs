@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '11.0'
     s.ios.vendored_frameworks = "DotFaceEyeGazeLiveness/DotFaceEyeGazeLiveness.xcframework"
 
-    s.ios.dependency 'dot-face-detection', '{version}'
+    s.ios.dependency 'dot-face-core', '{version}'
 end
 
 # '0.1' exact version 0.1
