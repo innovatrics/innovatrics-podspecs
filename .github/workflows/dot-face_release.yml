@@ -20,13 +20,23 @@ jobs:
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
           
-      - name: Release dot-face-detection
+      - name: Release dot-face-detection-fast
         run: |
-          cd dot-face-detection
+          cd dot-face-detection-fast
           mkdir $DOT_FACE_VERSION || true
-          cp dot-face-detection_template.podspec $DOT_FACE_VERSION/dot-face-detection.podspec || true
+          cp dot-face-detection-fast_template.podspec $DOT_FACE_VERSION/dot-face-detection-fast.podspec || true
           cd $DOT_FACE_VERSION
-          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-detection.podspec
+          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-detection-fast.podspec
+        env:
+          DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
+          
+      - name: Release dot-face-detection-balanced
+        run: |
+          cd dot-face-detection-balanced
+          mkdir $DOT_FACE_VERSION || true
+          cp dot-face-detection-balanced_template.podspec $DOT_FACE_VERSION/dot-face-detection-balanced.podspec || true
+          cd $DOT_FACE_VERSION
+          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-detection-balanced.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
           
@@ -57,6 +67,16 @@ jobs:
           cp dot-face-eye-gaze-liveness_template.podspec $DOT_FACE_VERSION/dot-face-eye-gaze-liveness.podspec || true
           cd $DOT_FACE_VERSION
           sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-eye-gaze-liveness.podspec
+        env:
+          DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
+          
+      - name: Release dot-face-background-uniformity
+        run: |
+          cd dot-face-background-uniformity
+          mkdir $DOT_FACE_VERSION || true
+          cp dot-face-background-uniformity_template.podspec $DOT_FACE_VERSION/dot-face-background-uniformity.podspec || true
+          cd $DOT_FACE_VERSION
+          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-background-uniformity.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
       
