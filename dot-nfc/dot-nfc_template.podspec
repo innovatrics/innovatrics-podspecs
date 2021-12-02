@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-nfc'
     s.version           = '{version}'
-    s.summary           = 'NFCReader framework'
+    s.summary           = 'DOT NFC framework'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
@@ -9,11 +9,11 @@ Pod::Spec.new do |s|
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-nfc/#{s.version}/NFCReader.xcframework.zip" }
-    s.ios.deployment_target = '10.1'
-    s.ios.vendored_frameworks = "NFCReader.xcframework"
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-nfc/#{s.version}/DotNfc.zip" }
+    s.ios.deployment_target = '11.0'
+    s.ios.vendored_frameworks = "DotNfc/DotNfc.xcframework"
 
-    s.ios.dependency 'innovatrics-openssl', '~> 1.0.4'
+    s.ios.dependency 'dot-openssl', '~> 1.1.0'
 end
 
 # '0.1' exact version 0.1
