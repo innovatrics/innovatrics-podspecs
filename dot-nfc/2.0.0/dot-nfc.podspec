@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = 'MIT'
+    s.license           = { :type => 'MIT', :file => 'DotNfc/LICENSE' }
 
 
     s.platform          = :ios
