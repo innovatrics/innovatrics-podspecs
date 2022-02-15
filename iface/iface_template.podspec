@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
     s.platform          = :ios
     s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface/#{s.version}/IFace.zip" }
-    s.ios.deployment_target = '10.1'
+    s.ios.deployment_target = '11.0'
     s.ios.vendored_frameworks = "IFace/iface.xcframework"
 
 end
