@@ -79,6 +79,16 @@ jobs:
           sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-background-uniformity.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
+          
+      - name: Release dot-face-expression-neutral
+        run: |
+          cd dot-face-expression-neutral
+          mkdir $DOT_FACE_VERSION || true
+          cp dot-face-expression-neutral_template.podspec $DOT_FACE_VERSION/dot-face-expression-neutral.podspec || true
+          cd $DOT_FACE_VERSION
+          sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-expression-neutral.podspec
+        env:
+          DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
       
       - name: Update iface dependency version for dot-face-core
         if: github.event.client_payload.iface_version != 'null'
