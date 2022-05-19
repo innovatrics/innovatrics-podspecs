@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-face-lite'
-    s.version           = '{version}'
+    s.version           = '1.0.0'
     s.summary           = 'DOT iOS Face Lite'
     s.homepage          = 'https://www.innovatrics.com'
 
