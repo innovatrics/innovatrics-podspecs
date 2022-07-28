@@ -10,6 +10,44 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Release onnx
+        if: github.event.client_payload.iface_version != 'null' && github.event.client_payload.onnx_version != 'null'
+        run: |
+          cd onnx
+          mkdir $ONNX_VERSION || true
+          cp onnx_template.podspec $ONNX_VERSION/onnx.podspec || true
+          cd $ONNX_VERSION
+          sed -i "s/{version}/$ONNX_VERSION/g" onnx.podspec
+        env:
+          ONNX_VERSION: "${{github.event.client_payload.onnx_version}}"
+          
+      - name: Update onnx dependency version for iface
+        if: github.event.client_payload.iface_version != 'null' && github.event.client_payload.onnx_version != 'null'
+        run: |
+          cd iface
+          sed -i "s/    s.ios.dependency 'onnx'.*$/    s.ios.dependency 'onnx', '$ONNX_VERSION'/g" iface_template.podspec
+        env:
+          ONNX_VERSION: "${{github.event.client_payload.onnx_version}}"
+          
+      - name: Release iface
+        if: github.event.client_payload.iface_version != 'null' && github.event.client_payload.onnx_version != 'null'
+        run: |
+          cd iface
+          mkdir $IFACE_VERSION || true
+          cp iface_template.podspec $IFACE_VERSION/iface.podspec || true
+          cd $IFACE_VERSION
+          sed -i "s/{version}/$IFACE_VERSION/g" iface.podspec
+        env:
+          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
+      
+      - name: Update iface dependency version for dot-face-core
+        if: github.event.client_payload.iface_version != 'null' && github.event.client_payload.onnx_version != 'null'
+        run: |
+          cd dot-face-core
+          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-core_template.podspec
+        env:
+          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
+      
       - name: Release dot-face-core
         run: |
           cd dot-face-core
@@ -89,28 +127,6 @@ jobs:
           sed -i "s/{version}/$DOT_FACE_VERSION/g" dot-face-expression-neutral.podspec
         env:
           DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
-      
-      - name: Update iface dependency version for dot-face-core
-        if: github.event.client_payload.iface_version != 'null'
-        run: |
-          cd dot-face-core
-          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-core_template.podspec
-          cd $DOT_FACE_VERSION
-          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-core.podspec
-        env:
-          DOT_FACE_VERSION: "${{github.event.client_payload.dot_face_version}}"
-          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
-          
-      - name: Release iface
-        if: github.event.client_payload.iface_version != 'null'
-        run: |
-          cd iface
-          mkdir $IFACE_VERSION || true
-          cp iface_template.podspec $IFACE_VERSION/iface.podspec || true
-          cd $IFACE_VERSION
-          sed -i "s/{version}/$IFACE_VERSION/g" iface.podspec
-        env:
-          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
       
       - name: Push changes
         run: |
