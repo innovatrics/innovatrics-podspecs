@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '11.0'
     s.ios.vendored_frameworks = "DotFaceLite/DotFaceLite.xcframework"
 
-    s.ios.dependency 'sam-face', '1.1.0'
+    s.ios.dependency 'sam-face', '1.2.0'
 end
 
 # '0.1' exact version 0.1
