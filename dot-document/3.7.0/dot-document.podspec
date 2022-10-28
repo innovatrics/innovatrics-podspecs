@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-document'
-    s.version           = '{version}'
+    s.version           = '3.7.0'
     s.summary           = 'DOT iOS Document'
     s.homepage          = 'https://www.innovatrics.com'
 
