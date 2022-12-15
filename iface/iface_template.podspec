@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '11.0'
     s.ios.vendored_frameworks = "IFace/iface.xcframework"
 
-    s.ios.dependency 'onnx', '1.0.0'
+    s.ios.dependency 'onnx', '1.3.0'
 
 end
 

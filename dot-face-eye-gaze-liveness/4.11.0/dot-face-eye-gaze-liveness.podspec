@@ -1,19 +1,19 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-face-core'
-    s.version           = '{version}'
-    s.summary           = 'DOT iOS Face Core'
+    s.name              = 'dot-face-eye-gaze-liveness'
+    s.version           = '4.11.0'
+    s.summary           = 'DOT iOS Face Eye Gaze Liveness'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceCore/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceEyeGazeLiveness/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-core/#{s.version}/DotFaceCore.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-eye-gaze-liveness/#{s.version}/DotFaceEyeGazeLiveness.zip" }
     s.ios.deployment_target = '11.0'
-    s.ios.vendored_frameworks = "DotFaceCore/DotFaceCore.xcframework"
+    s.ios.vendored_frameworks = "DotFaceEyeGazeLiveness/DotFaceEyeGazeLiveness.xcframework"
 
-    s.ios.dependency 'iface', '4.21.0'
+    s.ios.dependency 'dot-face-core', '4.11.0'
 end
 
 # '0.1' exact version 0.1
