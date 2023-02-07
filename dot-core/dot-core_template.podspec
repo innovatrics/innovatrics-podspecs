@@ -1,21 +1,18 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-document'
+    s.name              = 'dot-core'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Document'
+    s.summary           = 'DOT iOS Core'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotDocument/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotCore/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-document/#{s.version}/DotDocument.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-core/#{s.version}/DotCore.zip" }
     s.ios.deployment_target = '11.0'
-    s.ios.vendored_frameworks = 'DotDocument/DotDocument.xcframework'
+    s.ios.vendored_frameworks = "DotCore/DotCore.xcframework"
 
-    s.ios.dependency 'sam', '2.3.0'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
 end
 
 # '0.1' exact version 0.1

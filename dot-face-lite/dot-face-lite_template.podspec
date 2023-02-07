@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
 
     s.ios.dependency 'sam-face', '1.2.0'
     s.ios.dependency 'dot-protobuf', '1.0.0'
+    s.ios.dependency 'dot-core', '{version}'
+    s.ios.dependency 'dot-camera', '{version}'
 end
 
 # '0.1' exact version 0.1
