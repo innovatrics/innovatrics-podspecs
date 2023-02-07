@@ -1,0 +1,41 @@
+name: Release dot-shared-libraries
+
+on:
+  repository_dispatch:
+    types: dot_shared_libraries_release
+jobs:
+  release:
+    name: Release dot-shared-libraries
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Release dot-core
+        run: |
+          cd dot-core
+          mkdir $DOT_CORE_VERSION || true
+          cp dot-core_template.podspec $DOT_CORE_VERSION/dot-core.podspec || true
+          cd $DOT_CORE_VERSION
+          sed -i "s/{version}/$DOT_CORE_VERSION/g" dot-core.podspec
+        env:
+          DOT_CORE_VERSION: "${{github.event.client_payload.dot_core_version}}"
+          
+      - name: Release dot-camera
+        run: |
+          cd dot-camera
+          mkdir $DOT_CAMERA_VERSION || true
+          cp dot-camera_template.podspec $DOT_CAMERA_VERSION/dot-camera.podspec || true
+          cd $DOT_CAMERA_VERSION
+          sed -i "s/{version}/$DOT_CAMERA_VERSION/g" dot-camera.podspec
+        env:
+          DOT_CAMERA_VERSION: "${{github.event.client_payload.dot_camera_version}}"
+      
+      - name: Push changes
+        run: |
+          git config --global user.name 'Jakub Vallo'
+          git config --global user.email 'jakub.vallo@innovatrics.com'
+          git add *
+          git commit -m "[dot-shared-libraries_release workflow] release DOT shared libraries $DOT_CORE_VERSION"
+          git push
+        env:
+          DOT_CORE_VERSION: "${{github.event.client_payload.dot_core_version}}"
