@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Release onnx
-        if: github.event.client_payload.iface_version != 'null' && github.event.client_payload.onnx_version != 'null'
+        if: github.event.client_payload.iface_version != '' && github.event.client_payload.onnx_version != ''
         run: |
           cd onnx
           mkdir $ONNX_VERSION || true
@@ -22,7 +22,7 @@ jobs:
           ONNX_VERSION: "${{github.event.client_payload.onnx_version}}"
           
       - name: Update onnx dependency version for iface
-        if: github.event.client_payload.iface_version != 'null' && github.event.client_payload.onnx_version != 'null'
+        if: github.event.client_payload.iface_version != '' && github.event.client_payload.onnx_version != ''
         run: |
           cd iface
           sed -i "s/    s.ios.dependency 'onnx'.*$/    s.ios.dependency 'onnx', '$ONNX_VERSION'/g" iface_template.podspec
@@ -30,7 +30,7 @@ jobs:
           ONNX_VERSION: "${{github.event.client_payload.onnx_version}}"
           
       - name: Release iface
-        if: github.event.client_payload.iface_version != 'null' && github.event.client_payload.onnx_version != 'null'
+        if: github.event.client_payload.iface_version != '' && github.event.client_payload.onnx_version != ''
         run: |
           cd iface
           mkdir $IFACE_VERSION || true
@@ -41,7 +41,7 @@ jobs:
           IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
       
       - name: Update iface dependency version for dot-face-core
-        if: github.event.client_payload.iface_version != 'null' && github.event.client_payload.onnx_version != 'null'
+        if: github.event.client_payload.iface_version != '' && github.event.client_payload.onnx_version != ''
         run: |
           cd dot-face-core
           sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-core_template.podspec
