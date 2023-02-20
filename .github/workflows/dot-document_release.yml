@@ -9,7 +9,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
+      - name: Release sam
+        if: github.event.client_payload.sam_version != ''
+        run: |
+          cd sam
+          mkdir $SAM_VERSION || true
+          cp sam_template.podspec $SAM_VERSION/sam.podspec || true
+          cd $SAM_VERSION
+          sed -i "s/{version}/$SAM_VERSION/g" sam.podspec
+        env:
+          SAM_VERSION: "${{github.event.client_payload.sam_version}}"      
+
+      - name: Update sam dependency version for dot-document
+        if: github.event.client_payload.sam_version != ''
+        run: |
+          cd dot-document
+          sed -i "s/    s.ios.dependency 'sam'.*$/    s.ios.dependency 'sam', '$SAM_VERSION'/g" dot-document_template.podspec
+        env:
+          SAM_VERSION: "${{github.event.client_payload.sam_version}}"
+
       - name: Release dot-document
         run: |
           cd dot-document
@@ -19,28 +38,6 @@ jobs:
           sed -i "s/{version}/$DOT_DOCUMENT_VERSION/g" dot-document.podspec
         env:
           DOT_DOCUMENT_VERSION: "${{github.event.client_payload.dot_document_version}}"
-      
-      - name: Update sam dependancy version for dot-document
-        if: github.event.client_payload.sam_version != 'null'
-        run: |
-          cd dot-document
-          sed -i "s/    s.ios.dependency 'sam'.*$/    s.ios.dependency 'sam', '$SAM_VERSION'/g" dot-document_template.podspec
-          cd $DOT_DOCUMENT_VERSION
-          sed -i "s/    s.ios.dependency 'sam'.*$/    s.ios.dependency 'sam', '$SAM_VERSION'/g" dot-document.podspec
-        env:
-          DOT_DOCUMENT_VERSION: "${{github.event.client_payload.dot_document_version}}"
-          SAM_VERSION: "${{github.event.client_payload.sam_version}}"
-          
-      - name: Release sam
-        if: github.event.client_payload.sam_version != 'null'
-        run: |
-          cd sam
-          mkdir $SAM_VERSION || true
-          cp sam_template.podspec $SAM_VERSION/sam.podspec || true
-          cd $SAM_VERSION
-          sed -i "s/{version}/$SAM_VERSION/g" sam.podspec
-        env:
-          SAM_VERSION: "${{github.event.client_payload.sam_version}}"
       
       - name: Push changes
         run: |
