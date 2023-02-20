@@ -10,6 +10,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Release sam-face
+        if: github.event.client_payload.sam_face_version != ''
+        run: |
+          cd sam-face
+          mkdir $SAM_FACE_VERSION || true
+          cp sam-face_template.podspec $SAM_FACE_VERSION/sam-face.podspec || true
+          cd $SAM_FACE_VERSION
+          sed -i "s/{version}/$SAM_FACE_VERSION/g" sam-face.podspec
+        env:
+          SAM_FACE_VERSION: "${{github.event.client_payload.sam_face_version}}"
+
+      - name: Update sam-face dependency version for dot-face-lite
+        if: github.event.client_payload.sam_face_version != ''
+        run: |
+          cd dot-face-lite
+          sed -i "s/    s.ios.dependency 'sam-face'.*$/    s.ios.dependency 'sam-face', '$SAM_FACE_VERSION'/g" dot-face-lite_template.podspec
+        env:
+          SAM_FACE_VERSION: "${{github.event.client_payload.sam_face_version}}"
+
       - name: Release dot-face-lite
         run: |
           cd dot-face-lite
@@ -19,17 +38,6 @@ jobs:
           sed -i "s/{version}/$DOT_FACE_LITE_VERSION/g" dot-face-lite.podspec
         env:
           DOT_FACE_LITE_VERSION: "${{github.event.client_payload.dot_face_lite_version}}"
-      
-      - name: Update sam-face dependency version for dot-face-lite
-        if: github.event.client_payload.sam_face_version != 'null'
-        run: |
-          cd dot-face-lite
-          sed -i "s/    s.ios.dependency 'sam-face'.*$/    s.ios.dependency 'sam-face', '$SAM_FACE_VERSION'/g" dot-face-lite_template.podspec
-          cd $DOT_FACE_LITE_VERSION
-          sed -i "s/    s.ios.dependency 'sam-face'.*$/    s.ios.dependency 'sam-face', '$SAM_FACE_VERSION'/g" dot-face-lite.podspec
-        env:
-          DOT_FACE_LITE_VERSION: "${{github.event.client_payload.dot_face_lite_version}}"
-          SAM_FACE_VERSION: "${{github.event.client_payload.sam_face_version}}"
       
       - name: Push changes
         run: |
