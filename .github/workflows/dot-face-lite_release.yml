@@ -10,6 +10,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Release dot-protobuf
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-protobuf
+          mkdir $PROTOBUF_VERSION || true
+          cp dot-protobuf_template.podspec $PROTOBUF_VERSION/dot-protobuf.podspec || true
+          cd $PROTOBUF_VERSION
+          sed -i "s/{version}/$PROTOBUF_VERSION/g" dot-protobuf.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
+
+      - name: Update dot-protobuf dependency version for dot-face-lite
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-face-lite
+          sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-face-lite_template.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
+
       - name: Release sam-face
         if: github.event.client_payload.sam_face_version != ''
         run: |
