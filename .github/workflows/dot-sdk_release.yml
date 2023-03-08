@@ -1,0 +1,273 @@
+name: Release dot-sdk
+
+on:
+  repository_dispatch:
+    types: dot_sdk_release
+jobs:
+  release:
+    name: Release dot-sdk
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: SHARED >> Release dot-core
+        run: |
+          cd dot-core
+          mkdir $RELEASE_VERSION || true
+          cp dot-core_template.podspec $RELEASE_VERSION/dot-core.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-core.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: SHARED >> Release dot-camera
+        run: |
+          cd dot-camera
+          mkdir $RELEASE_VERSION || true
+          cp dot-camera_template.podspec $RELEASE_VERSION/dot-camera.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-camera.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+                
+###########################################################################################################################################
+
+      - name: NFC >> Release openssl
+        if: github.event.client_payload.openssl_version != ''
+        run: |
+          cd dot-openssl
+          mkdir $OPENSSL_VERSION || true
+          cp dot-openssl_template.podspec $OPENSSL_VERSION/dot-openssl.podspec || true
+          cd $OPENSSL_VERSION
+          sed -i "s/{version}/$OPENSSL_VERSION/g" dot-openssl.podspec
+        env:
+          OPENSSL_VERSION: "${{github.event.client_payload.openssl_version}}"
+
+      - name: NFC >> Update openssl dependency version for dot-nfc
+        if: github.event.client_payload.openssl_version != ''
+        run: |
+          cd dot-nfc
+          sed -i "s/    s.ios.dependency 'dot-openssl'.*$/    s.ios.dependency 'dot-openssl', '$OPENSSL_VERSION'/g" dot-nfc_template.podspec
+        env:
+          OPENSSL_VERSION: "${{github.event.client_payload.openssl_version}}"
+
+      - name: NFC >> Release dot-nfc
+        run: |
+          cd dot-nfc
+          mkdir $RELEASE_VERSION || true
+          cp dot-nfc_template.podspec $RELEASE_VERSION/dot-nfc.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-nfc.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+      
+###########################################################################################################################################
+      
+      - name: DOCUMENT >> Release sam
+        if: github.event.client_payload.sam_version != ''
+        run: |
+          cd sam
+          mkdir $SAM_VERSION || true
+          cp sam_template.podspec $SAM_VERSION/sam.podspec || true
+          cd $SAM_VERSION
+          sed -i "s/{version}/$SAM_VERSION/g" sam.podspec
+        env:
+          SAM_VERSION: "${{github.event.client_payload.sam_version}}"
+
+      - name: DOCUMENT >> Update sam dependency version for dot-document
+        if: github.event.client_payload.sam_version != ''
+        run: |
+          cd dot-document
+          sed -i "s/    s.ios.dependency 'sam'.*$/    s.ios.dependency 'sam', '$SAM_VERSION'/g" dot-document_template.podspec
+        env:
+          SAM_VERSION: "${{github.event.client_payload.sam_version}}"
+
+      - name: DOCUMENT >> Release dot-document
+        run: |
+          cd dot-document
+          mkdir $RELEASE_VERSION || true
+          cp dot-document_template.podspec $RELEASE_VERSION/dot-document.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-document.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+      
+###########################################################################################################################################
+      
+      - name: FACE >> Release onnx
+        if: github.event.client_payload.iface_version != '' && github.event.client_payload.onnx_version != ''
+        run: |
+          cd onnx
+          mkdir $ONNX_VERSION || true
+          cp onnx_template.podspec $ONNX_VERSION/onnx.podspec || true
+          cd $ONNX_VERSION
+          sed -i "s/{version}/$ONNX_VERSION/g" onnx.podspec
+        env:
+          ONNX_VERSION: "${{github.event.client_payload.onnx_version}}"
+          
+      - name: FACE >> Update onnx dependency version for iface
+        if: github.event.client_payload.iface_version != '' && github.event.client_payload.onnx_version != ''
+        run: |
+          cd iface
+          sed -i "s/    s.ios.dependency 'onnx'.*$/    s.ios.dependency 'onnx', '$ONNX_VERSION'/g" iface_template.podspec
+        env:
+          ONNX_VERSION: "${{github.event.client_payload.onnx_version}}"
+          
+      - name: FACE >> Release iface
+        if: github.event.client_payload.iface_version != '' && github.event.client_payload.onnx_version != ''
+        run: |
+          cd iface
+          mkdir $IFACE_VERSION || true
+          cp iface_template.podspec $IFACE_VERSION/iface.podspec || true
+          cd $IFACE_VERSION
+          sed -i "s/{version}/$IFACE_VERSION/g" iface.podspec
+        env:
+          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
+      
+      - name: FACE >> Update iface dependency version for dot-face-core
+        if: github.event.client_payload.iface_version != '' && github.event.client_payload.onnx_version != ''
+        run: |
+          cd dot-face-core
+          sed -i "s/    s.ios.dependency 'iface'.*$/    s.ios.dependency 'iface', '$IFACE_VERSION'/g" dot-face-core_template.podspec
+        env:
+          IFACE_VERSION: "${{github.event.client_payload.iface_version}}"
+      
+      - name: FACE >> Release dot-face-core
+        run: |
+          cd dot-face-core
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-core_template.podspec $RELEASE_VERSION/dot-face-core.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-core.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: FACE >> Release dot-face-detection-fast
+        run: |
+          cd dot-face-detection-fast
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-detection-fast_template.podspec $RELEASE_VERSION/dot-face-detection-fast.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-detection-fast.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: FACE >> Release dot-face-detection-balanced
+        run: |
+          cd dot-face-detection-balanced
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-detection-balanced_template.podspec $RELEASE_VERSION/dot-face-detection-balanced.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-detection-balanced.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: FACE >> Release dot-face-verification
+        run: |
+          cd dot-face-verification
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-verification_template.podspec $RELEASE_VERSION/dot-face-verification.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-verification.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+      
+      - name: FACE >> Release dot-face-passive-liveness
+        run: |
+          cd dot-face-passive-liveness
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-passive-liveness_template.podspec $RELEASE_VERSION/dot-face-passive-liveness.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-passive-liveness.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: FACE >> Release dot-face-eye-gaze-liveness
+        run: |
+          cd dot-face-eye-gaze-liveness
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-eye-gaze-liveness_template.podspec $RELEASE_VERSION/dot-face-eye-gaze-liveness.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-eye-gaze-liveness.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: FACE >> Release dot-face-background-uniformity
+        run: |
+          cd dot-face-background-uniformity
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-background-uniformity_template.podspec $RELEASE_VERSION/dot-face-background-uniformity.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-background-uniformity.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: FACE >> Release dot-face-expression-neutral
+        run: |
+          cd dot-face-expression-neutral
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-expression-neutral_template.podspec $RELEASE_VERSION/dot-face-expression-neutral.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-expression-neutral.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+      
+###########################################################################################################################################
+      
+      - name: FACE-LITE >> Release dot-protobuf
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-protobuf
+          mkdir $PROTOBUF_VERSION || true
+          cp dot-protobuf_template.podspec $PROTOBUF_VERSION/dot-protobuf.podspec || true
+          cd $PROTOBUF_VERSION
+          sed -i "s/{version}/$PROTOBUF_VERSION/g" dot-protobuf.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
+
+      - name: FACE-LITE >> Update dot-protobuf dependency version for dot-face-lite
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-face-lite
+          sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-face-lite_template.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
+
+      - name: FACE-LITE >> Release sam-face
+        if: github.event.client_payload.sam_face_version != ''
+        run: |
+          cd sam-face
+          mkdir $SAM_FACE_VERSION || true
+          cp sam-face_template.podspec $SAM_FACE_VERSION/sam-face.podspec || true
+          cd $SAM_FACE_VERSION
+          sed -i "s/{version}/$SAM_FACE_VERSION/g" sam-face.podspec
+        env:
+          SAM_FACE_VERSION: "${{github.event.client_payload.sam_face_version}}"
+
+      - name: FACE-LITE >> Update sam-face dependency version for dot-face-lite
+        if: github.event.client_payload.sam_face_version != ''
+        run: |
+          cd dot-face-lite
+          sed -i "s/    s.ios.dependency 'sam-face'.*$/    s.ios.dependency 'sam-face', '$SAM_FACE_VERSION'/g" dot-face-lite_template.podspec
+        env:
+          SAM_FACE_VERSION: "${{github.event.client_payload.sam_face_version}}"
+
+      - name: FACE-LITE >> Release dot-face-lite
+        run: |
+          cd dot-face-lite
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-lite_template.podspec $RELEASE_VERSION/dot-face-lite.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-lite.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: Push changes
+        run: |
+          git config --global user.name 'Jakub Vallo'
+          git config --global user.email 'jakub.vallo@innovatrics.com'
+          git add *
+          git commit -m "[dot_sdk_release workflow] release DOT iOS SDK $RELEASE_VERSION"
+          git push
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
