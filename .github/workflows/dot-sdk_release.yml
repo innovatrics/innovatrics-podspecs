@@ -250,25 +250,6 @@ jobs:
           RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
       
 ###########################################################################################################################################
-      
-      - name: FACE-LITE >> Release dot-protobuf
-        if: github.event.client_payload.protobuf_version != ''
-        run: |
-          cd dot-protobuf
-          mkdir $PROTOBUF_VERSION || true
-          cp dot-protobuf_template.podspec $PROTOBUF_VERSION/dot-protobuf.podspec || true
-          cd $PROTOBUF_VERSION
-          sed -i "s/{version}/$PROTOBUF_VERSION/g" dot-protobuf.podspec
-        env:
-          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
-
-      - name: FACE-LITE >> Update dot-protobuf dependency version for dot-face-lite
-        if: github.event.client_payload.protobuf_version != ''
-        run: |
-          cd dot-face-lite
-          sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-face-lite_template.podspec
-        env:
-          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
 
       - name: FACE-LITE >> Release sam-face
         if: github.event.client_payload.sam_face_version != ''
