@@ -29,6 +29,43 @@ jobs:
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-camera.podspec
         env:
           RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: SHARED >> Release dot-face-commons
+        run: |
+          cd dot-face-commons
+          mkdir $RELEASE_VERSION || true
+          cp dot-face-commons_template.podspec $RELEASE_VERSION/dot-face-commons.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-commons.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+          
+      - name: SHARED >> Release dot-protobuf
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-protobuf
+          mkdir $PROTOBUF_VERSION || true
+          cp dot-protobuf_template.podspec $PROTOBUF_VERSION/dot-protobuf.podspec || true
+          cd $PROTOBUF_VERSION
+          sed -i "s/{version}/$PROTOBUF_VERSION/g" dot-protobuf.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
+
+      - name: SHARED >> Update dot-protobuf dependency version for dot-face-core
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-face-core
+          sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-face-core_template.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
+
+      - name: SHARED >> Update dot-protobuf dependency version for dot-face-lite
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-face-lite
+          sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-face-lite_template.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
                 
 ###########################################################################################################################################
 
