@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'iface'
-    s.version           = '{version}'
+    s.version           = '5.1.1'
     s.summary           = 'iface'
     s.homepage          = 'https://www.innovatrics.com'
 

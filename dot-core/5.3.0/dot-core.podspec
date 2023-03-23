@@ -1,19 +1,17 @@
 Pod::Spec.new do |s|
-    s.name              = 'iface'
-    s.version           = '{version}'
-    s.summary           = 'iface'
+    s.name              = 'dot-core'
+    s.version           = '5.3.0'
+    s.summary           = 'DOT iOS Core'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'IFace/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotCore/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface/#{s.version}/IFace.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-core/#{s.version}/DotCore.zip" }
     s.ios.deployment_target = '11.0'
-    s.ios.vendored_frameworks = "IFace/iface.xcframework"
-
-    s.ios.dependency 'onnx', '2.1.1'
+    s.ios.vendored_frameworks = "DotCore/DotCore.xcframework"
 
 end
 
