@@ -1,23 +1,18 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-document'
+    s.name              = 'dot-capture'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Document'
+    s.summary           = 'DOT iOS Capture'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotDocument/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotCapture/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-document/#{s.version}/DotDocument.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-capture/#{s.version}/DotCapture.zip" }
     s.ios.deployment_target = '11.0'
-    s.ios.vendored_frameworks = 'DotDocument/DotDocument.xcframework'
+    s.ios.vendored_frameworks = "DotCapture/DotCapture.xcframework"
 
-    s.ios.dependency 'sam', '2.3.0'
-    s.ios.dependency 'dot-protobuf', '1.3.0'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-capture', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
 end
 
 # '0.1' exact version 0.1
