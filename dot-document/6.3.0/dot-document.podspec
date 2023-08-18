@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-document'
-    s.version           = '{version}'
+    s.version           = '6.3.0'
     s.summary           = 'DOT iOS Document'
     s.homepage          = 'https://www.innovatrics.com'
 
@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
 
     s.ios.dependency 'sam', '2.3.0'
     s.ios.dependency 'dot-protobuf', '1.5.0'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-capture', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
+    s.ios.dependency 'dot-core', '6.3.0'
+    s.ios.dependency 'dot-capture', '6.3.0'
+    s.ios.dependency 'dot-camera', '6.3.0'
 end
 
 # '0.1' exact version 0.1
