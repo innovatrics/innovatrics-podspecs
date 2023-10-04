@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '11.0'
     s.ios.vendored_frameworks = 'DotDocument/DotDocument.xcframework'
 
-    s.ios.dependency 'sam', '2.3.0'
+    s.ios.dependency 'sam', '2.35.2'
     s.ios.dependency 'dot-protobuf', '1.5.0'
     s.ios.dependency 'dot-core', '{version}'
     s.ios.dependency 'dot-capture', '{version}'
