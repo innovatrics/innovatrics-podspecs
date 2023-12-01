@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'OpenSSL', :file => 'OpenSSL/LICENSE' }
+    s.license           = { :type => 'OpenSSL', :file => 'DotOpenSSL/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-openssl/#{s.version}/OpenSSL.zip" }
-    s.ios.deployment_target = '9.0'
-    s.ios.vendored_frameworks = "OpenSSL/OpenSSL.xcframework"
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-openssl/#{s.version}/DotOpenSSL.zip" }
+    s.ios.deployment_target = '11.0'
+    s.ios.vendored_frameworks = "DotOpenSSL/DotOpenSSL.xcframework"
 end
 
 # '0.1' exact version 0.1
