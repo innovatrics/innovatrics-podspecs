@@ -1,20 +1,19 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-nfc'
-    s.version           = '{version}'
-    s.summary           = 'DOT NFC framework'
+    s.name              = 'dot-face-verification'
+    s.version           = '7.0.1'
+    s.summary           = 'DOT iOS Face Verification'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'MIT', :file => 'DotNfc/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceVerification/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-nfc/#{s.version}/DotNfc.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-verification/#{s.version}/DotFaceVerification.zip" }
     s.ios.deployment_target = '11.0'
-    s.ios.vendored_frameworks = "DotNfc/DotNfc.xcframework"
+    s.ios.vendored_frameworks = "DotFaceVerification/DotFaceVerification.xcframework"
 
-    s.ios.dependency 'dot-openssl', '1.2.0'
-    s.ios.dependency 'dot-core', '{version}'
+    s.ios.dependency 'dot-face-core', '7.0.1'
 end
 
 # '0.1' exact version 0.1

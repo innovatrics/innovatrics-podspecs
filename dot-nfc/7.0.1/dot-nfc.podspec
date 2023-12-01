@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-nfc'
-    s.version           = '{version}'
+    s.version           = '7.0.1'
     s.summary           = 'DOT NFC framework'
     s.homepage          = 'https://www.innovatrics.com'
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.ios.vendored_frameworks = "DotNfc/DotNfc.xcframework"
 
     s.ios.dependency 'dot-openssl', '1.2.0'
-    s.ios.dependency 'dot-core', '{version}'
+    s.ios.dependency 'dot-core', '7.0.1'
 end
 
 # '0.1' exact version 0.1
