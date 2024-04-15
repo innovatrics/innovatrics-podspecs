@@ -1,20 +1,19 @@
 Pod::Spec.new do |s|
-    s.name              = 'iface'
-    s.version           = '{version}'
-    s.summary           = 'iface'
+    s.name              = 'dot-face-detection-balanced'
+    s.version           = '7.5.1'
+    s.summary           = 'DOT iOS Face Detection Balanced'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'IFace/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceDetectionBalanced/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface/#{s.version}/IFace.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-detection-balanced/#{s.version}/DotFaceDetectionBalanced.zip" }
     s.ios.deployment_target = '11.0'
-    s.ios.vendored_frameworks = "IFace/iface.xcframework"
+    s.ios.vendored_frameworks = "DotFaceDetectionBalanced/DotFaceDetectionBalanced.xcframework"
 
-    s.ios.dependency 'onnx', '2.1.2'
-
+    s.ios.dependency 'dot-face-core', '7.5.1'
 end
 
 # '0.1' exact version 0.1

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-face-core'
-    s.version           = '{version}'
+    s.version           = '7.5.1'
     s.summary           = 'DOT iOS Face Core'
     s.homepage          = 'https://www.innovatrics.com'
 
@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
 
     s.ios.dependency 'iface', '5.1.2'
     s.ios.dependency 'dot-protobuf', '1.5.1'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-capture', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
-    s.ios.dependency 'dot-face-commons', '{version}'
+    s.ios.dependency 'dot-core', '7.5.1'
+    s.ios.dependency 'dot-capture', '7.5.1'
+    s.ios.dependency 'dot-camera', '7.5.1'
+    s.ios.dependency 'dot-face-commons', '7.5.1'
 end
 
 # '0.1' exact version 0.1

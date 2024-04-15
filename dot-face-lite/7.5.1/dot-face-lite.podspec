@@ -1,24 +1,24 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-face-core'
-    s.version           = '{version}'
-    s.summary           = 'DOT iOS Face Core'
+    s.name              = 'dot-face-lite'
+    s.version           = '7.5.1'
+    s.summary           = 'DOT iOS Face Lite'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceCore/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceLite/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-core/#{s.version}/DotFaceCore.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-lite/#{s.version}/DotFaceLite.zip" }
     s.ios.deployment_target = '11.0'
-    s.ios.vendored_frameworks = "DotFaceCore/DotFaceCore.xcframework"
+    s.ios.vendored_frameworks = "DotFaceLite/DotFaceLite.xcframework"
 
-    s.ios.dependency 'iface', '5.1.2'
+    s.ios.dependency 'sam-face', '1.35.2'
     s.ios.dependency 'dot-protobuf', '1.5.1'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-capture', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
-    s.ios.dependency 'dot-face-commons', '{version}'
+    s.ios.dependency 'dot-core', '7.5.1'
+    s.ios.dependency 'dot-capture', '7.5.1'
+    s.ios.dependency 'dot-camera', '7.5.1'
+    s.ios.dependency 'dot-face-commons', '7.5.1'
 end
 
 # '0.1' exact version 0.1
