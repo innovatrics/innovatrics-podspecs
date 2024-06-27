@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
     s.platform          = :ios
     s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-passive-liveness/#{s.version}/DotFacePassiveLiveness.zip" }
-    s.ios.deployment_target = '11.0'
+    s.ios.deployment_target = '12.0'
     s.ios.vendored_frameworks = "DotFacePassiveLiveness/DotFacePassiveLiveness.xcframework"
 
     s.ios.dependency 'dot-face-core', '{version}'
