@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
 
     s.ios.dependency 'dot-openssl', '1.2.1'
     s.ios.dependency 'dot-core', '{version}'
+    s.ios.dependency 'dot-document-commons', '{version}'
 end
 
 # '0.1' exact version 0.1
