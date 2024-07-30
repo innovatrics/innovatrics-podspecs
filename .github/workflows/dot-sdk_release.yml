@@ -14,7 +14,7 @@ jobs:
         run: |
           cd dot-core
           mkdir $RELEASE_VERSION || true
-          cp dot-core_template.podspec $RELEASE_VERSION/dot-core.podspec || true
+          cp -n dot-core_template.podspec $RELEASE_VERSION/dot-core.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-core.podspec
         env:
@@ -24,7 +24,7 @@ jobs:
         run: |
           cd dot-camera
           mkdir $RELEASE_VERSION || true
-          cp dot-camera_template.podspec $RELEASE_VERSION/dot-camera.podspec || true
+          cp -n dot-camera_template.podspec $RELEASE_VERSION/dot-camera.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-camera.podspec
         env:
@@ -34,7 +34,7 @@ jobs:
         run: |
           cd dot-capture
           mkdir $RELEASE_VERSION || true
-          cp dot-capture_template.podspec $RELEASE_VERSION/dot-capture.podspec || true
+          cp -n dot-capture_template.podspec $RELEASE_VERSION/dot-capture.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-capture.podspec
         env:
@@ -44,7 +44,7 @@ jobs:
         run: |
           cd dot-face-commons
           mkdir $RELEASE_VERSION || true
-          cp dot-face-commons_template.podspec $RELEASE_VERSION/dot-face-commons.podspec || true
+          cp -n dot-face-commons_template.podspec $RELEASE_VERSION/dot-face-commons.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-commons.podspec
         env:
@@ -54,7 +54,7 @@ jobs:
         run: |
           cd dot-document-commons
           mkdir $RELEASE_VERSION || true
-          cp dot-document-commons_template.podspec $RELEASE_VERSION/dot-document-commons.podspec || true
+          cp -n dot-document-commons_template.podspec $RELEASE_VERSION/dot-document-commons.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-document-commons.podspec
         env:
@@ -65,7 +65,7 @@ jobs:
         run: |
           cd dot-protobuf
           mkdir $PROTOBUF_VERSION || true
-          cp dot-protobuf_template.podspec $PROTOBUF_VERSION/dot-protobuf.podspec || true
+          cp -n dot-protobuf_template.podspec $PROTOBUF_VERSION/dot-protobuf.podspec || true
           cd $PROTOBUF_VERSION
           sed -i "s/{version}/$PROTOBUF_VERSION/g" dot-protobuf.podspec
         env:
@@ -102,7 +102,7 @@ jobs:
         run: |
           cd dot-openssl
           mkdir $OPENSSL_VERSION || true
-          cp dot-openssl_template.podspec $OPENSSL_VERSION/dot-openssl.podspec || true
+          cp -n dot-openssl_template.podspec $OPENSSL_VERSION/dot-openssl.podspec || true
           cd $OPENSSL_VERSION
           sed -i "s/{version}/$OPENSSL_VERSION/g" dot-openssl.podspec
         env:
@@ -120,7 +120,7 @@ jobs:
         run: |
           cd dot-nfc
           mkdir $RELEASE_VERSION || true
-          cp dot-nfc_template.podspec $RELEASE_VERSION/dot-nfc.podspec || true
+          cp -n dot-nfc_template.podspec $RELEASE_VERSION/dot-nfc.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-nfc.podspec
         env:
@@ -133,7 +133,7 @@ jobs:
         run: |
           cd sam
           mkdir $SAM_VERSION || true
-          cp sam_template.podspec $SAM_VERSION/sam.podspec || true
+          cp -n sam_template.podspec $SAM_VERSION/sam.podspec || true
           cd $SAM_VERSION
           sed -i "s/{version}/$SAM_VERSION/g" sam.podspec
         env:
@@ -151,7 +151,7 @@ jobs:
         run: |
           cd dot-document
           mkdir $RELEASE_VERSION || true
-          cp dot-document_template.podspec $RELEASE_VERSION/dot-document.podspec || true
+          cp -n dot-document_template.podspec $RELEASE_VERSION/dot-document.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-document.podspec
         env:
@@ -164,7 +164,7 @@ jobs:
         run: |
           cd onnx
           mkdir $ONNX_VERSION || true
-          cp onnx_template.podspec $ONNX_VERSION/onnx.podspec || true
+          cp -n onnx_template.podspec $ONNX_VERSION/onnx.podspec || true
           cd $ONNX_VERSION
           sed -i "s/{version}/$ONNX_VERSION/g" onnx.podspec
         env:
@@ -183,7 +183,7 @@ jobs:
         run: |
           cd iface
           mkdir $IFACE_VERSION || true
-          cp iface_template.podspec $IFACE_VERSION/iface.podspec || true
+          cp -n iface_template.podspec $IFACE_VERSION/iface.podspec || true
           cd $IFACE_VERSION
           sed -i "s/{version}/$IFACE_VERSION/g" iface.podspec
         env:
@@ -201,7 +201,7 @@ jobs:
         run: |
           cd dot-face-core
           mkdir $RELEASE_VERSION || true
-          cp dot-face-core_template.podspec $RELEASE_VERSION/dot-face-core.podspec || true
+          cp -n dot-face-core_template.podspec $RELEASE_VERSION/dot-face-core.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-core.podspec
         env:
@@ -211,7 +211,7 @@ jobs:
         run: |
           cd dot-face-detection-fast
           mkdir $RELEASE_VERSION || true
-          cp dot-face-detection-fast_template.podspec $RELEASE_VERSION/dot-face-detection-fast.podspec || true
+          cp -n dot-face-detection-fast_template.podspec $RELEASE_VERSION/dot-face-detection-fast.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-detection-fast.podspec
         env:
@@ -221,7 +221,7 @@ jobs:
         run: |
           cd dot-face-detection-balanced
           mkdir $RELEASE_VERSION || true
-          cp dot-face-detection-balanced_template.podspec $RELEASE_VERSION/dot-face-detection-balanced.podspec || true
+          cp -n dot-face-detection-balanced_template.podspec $RELEASE_VERSION/dot-face-detection-balanced.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-detection-balanced.podspec
         env:
@@ -231,7 +231,7 @@ jobs:
         run: |
           cd dot-face-verification
           mkdir $RELEASE_VERSION || true
-          cp dot-face-verification_template.podspec $RELEASE_VERSION/dot-face-verification.podspec || true
+          cp -n dot-face-verification_template.podspec $RELEASE_VERSION/dot-face-verification.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-verification.podspec
         env:
@@ -241,7 +241,7 @@ jobs:
         run: |
           cd dot-face-passive-liveness
           mkdir $RELEASE_VERSION || true
-          cp dot-face-passive-liveness_template.podspec $RELEASE_VERSION/dot-face-passive-liveness.podspec || true
+          cp -n dot-face-passive-liveness_template.podspec $RELEASE_VERSION/dot-face-passive-liveness.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-passive-liveness.podspec
         env:
@@ -251,7 +251,7 @@ jobs:
         run: |
           cd dot-face-eye-gaze-liveness
           mkdir $RELEASE_VERSION || true
-          cp dot-face-eye-gaze-liveness_template.podspec $RELEASE_VERSION/dot-face-eye-gaze-liveness.podspec || true
+          cp -n dot-face-eye-gaze-liveness_template.podspec $RELEASE_VERSION/dot-face-eye-gaze-liveness.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-eye-gaze-liveness.podspec
         env:
@@ -261,7 +261,7 @@ jobs:
         run: |
           cd dot-face-background-uniformity
           mkdir $RELEASE_VERSION || true
-          cp dot-face-background-uniformity_template.podspec $RELEASE_VERSION/dot-face-background-uniformity.podspec || true
+          cp -n dot-face-background-uniformity_template.podspec $RELEASE_VERSION/dot-face-background-uniformity.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-background-uniformity.podspec
         env:
@@ -271,7 +271,7 @@ jobs:
         run: |
           cd dot-face-expression-neutral
           mkdir $RELEASE_VERSION || true
-          cp dot-face-expression-neutral_template.podspec $RELEASE_VERSION/dot-face-expression-neutral.podspec || true
+          cp -n dot-face-expression-neutral_template.podspec $RELEASE_VERSION/dot-face-expression-neutral.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-expression-neutral.podspec
         env:
@@ -284,7 +284,7 @@ jobs:
         run: |
           cd sam-face
           mkdir $SAM_FACE_VERSION || true
-          cp sam-face_template.podspec $SAM_FACE_VERSION/sam-face.podspec || true
+          cp -n sam-face_template.podspec $SAM_FACE_VERSION/sam-face.podspec || true
           cd $SAM_FACE_VERSION
           sed -i "s/{version}/$SAM_FACE_VERSION/g" sam-face.podspec
         env:
@@ -302,7 +302,7 @@ jobs:
         run: |
           cd dot-face-lite
           mkdir $RELEASE_VERSION || true
-          cp dot-face-lite_template.podspec $RELEASE_VERSION/dot-face-lite.podspec || true
+          cp -n dot-face-lite_template.podspec $RELEASE_VERSION/dot-face-lite.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-lite.podspec
         env:
