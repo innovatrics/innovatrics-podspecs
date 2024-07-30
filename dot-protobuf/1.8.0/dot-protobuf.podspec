@@ -1,17 +1,17 @@
 Pod::Spec.new do |s|
-    s.name              = 'onnx'
-    s.version           = '2.1.2'
-    s.summary           = 'onnx'
+    s.name              = 'dot-protobuf'
+    s.version           = '1.8.0'
+    s.summary           = 'DOT iOS Protocol Buffers'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'Onnx/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotProtocolBuffers/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/onnx/#{s.version}/Onnx.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-protobuf/#{s.version}/DotProtocolBuffers.zip" }
     s.ios.deployment_target = '12.0'
-    s.ios.vendored_frameworks = "Onnx/innoonnxruntime.xcframework"
+    s.ios.vendored_frameworks = "DotProtocolBuffers/DotProtocolBuffers.xcframework"
 
 end
 

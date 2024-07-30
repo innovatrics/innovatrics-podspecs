@@ -1,17 +1,17 @@
 Pod::Spec.new do |s|
-    s.name              = 'onnx'
-    s.version           = '2.1.2'
-    s.summary           = 'onnx'
+    s.name              = 'dot-capture'
+    s.version           = '8.2.0'
+    s.summary           = 'DOT iOS Capture'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'Onnx/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotCapture/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/onnx/#{s.version}/Onnx.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-capture/#{s.version}/DotCapture.zip" }
     s.ios.deployment_target = '12.0'
-    s.ios.vendored_frameworks = "Onnx/innoonnxruntime.xcframework"
+    s.ios.vendored_frameworks = "DotCapture/DotCapture.xcframework"
 
 end
 
