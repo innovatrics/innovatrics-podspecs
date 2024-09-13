@@ -1,17 +1,22 @@
 Pod::Spec.new do |s|
-    s.name              = 'sam'
+    s.name              = 'dot-palm'
     s.version           = '{version}'
-    s.summary           = 'sam'
+    s.summary           = 'DOT iOS Palm'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'Sam/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotPalm/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/sam/#{s.version}/Sam.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-palm/#{s.version}/DotPalm.zip" }
     s.ios.deployment_target = '12.0'
-    s.ios.vendored_frameworks = "Sam/sam.xcframework"
+    s.ios.vendored_frameworks = 'DotPalm/DotPalm.xcframework'
+
+    s.ios.dependency 'dot-protobuf', '1.8.0'
+    s.ios.dependency 'dot-core', '{version}'
+    s.ios.dependency 'dot-capture', '{version}'
+    s.ios.dependency 'dot-camera', '{version}'
 end
 
 # '0.1' exact version 0.1
