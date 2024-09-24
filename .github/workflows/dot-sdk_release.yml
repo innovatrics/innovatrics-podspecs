@@ -94,6 +94,14 @@ jobs:
           sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-document_template.podspec
         env:
           PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
+
+      - name: SHARED >> Update dot-protobuf dependency version for dot-palm-core
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-palm-core
+          sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-palm-core_template.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
                 
 ###########################################################################################################################################
 
@@ -127,25 +135,6 @@ jobs:
           RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
       
 ###########################################################################################################################################
-      
-      - name: DOCUMENT >> Release sam
-        if: github.event.client_payload.sam_version != ''
-        run: |
-          cd sam
-          mkdir $SAM_VERSION || true
-          cp -n sam_template.podspec $SAM_VERSION/sam.podspec || true
-          cd $SAM_VERSION
-          sed -i "s/{version}/$SAM_VERSION/g" sam.podspec
-        env:
-          SAM_VERSION: "${{github.event.client_payload.sam_version}}"
-
-      - name: DOCUMENT >> Update sam dependency version for dot-document
-        if: github.event.client_payload.sam_version != ''
-        run: |
-          cd dot-document
-          sed -i "s/    s.ios.dependency 'sam'.*$/    s.ios.dependency 'sam', '$SAM_VERSION'/g" dot-document_template.podspec
-        env:
-          SAM_VERSION: "${{github.event.client_payload.sam_version}}"
 
       - name: DOCUMENT >> Release dot-document
         run: |
@@ -154,6 +143,28 @@ jobs:
           cp -n dot-document_template.podspec $RELEASE_VERSION/dot-document.podspec || true
           cd $RELEASE_VERSION
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-document.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+      
+###########################################################################################################################################
+
+      - name: PALM >> Release dot-palm-core
+        run: |
+          cd dot-palm-core
+          mkdir $RELEASE_VERSION || true
+          cp -n dot-palm-core_template.podspec $RELEASE_VERSION/dot-palm-core.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-palm-core.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+
+      - name: PALM >> Release dot-palm-detection
+        run: |
+          cd dot-palm-detection
+          mkdir $RELEASE_VERSION || true
+          cp -n dot-palm-detection_template.podspec $RELEASE_VERSION/dot-palm-detection.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-palm-detection.podspec
         env:
           RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
       
@@ -279,25 +290,6 @@ jobs:
       
 ###########################################################################################################################################
 
-      - name: FACE-LITE >> Release sam-face
-        if: github.event.client_payload.sam_face_version != ''
-        run: |
-          cd sam-face
-          mkdir $SAM_FACE_VERSION || true
-          cp -n sam-face_template.podspec $SAM_FACE_VERSION/sam-face.podspec || true
-          cd $SAM_FACE_VERSION
-          sed -i "s/{version}/$SAM_FACE_VERSION/g" sam-face.podspec
-        env:
-          SAM_FACE_VERSION: "${{github.event.client_payload.sam_face_version}}"
-
-      - name: FACE-LITE >> Update sam-face dependency version for dot-face-lite
-        if: github.event.client_payload.sam_face_version != ''
-        run: |
-          cd dot-face-lite
-          sed -i "s/    s.ios.dependency 'sam-face'.*$/    s.ios.dependency 'sam-face', '$SAM_FACE_VERSION'/g" dot-face-lite_template.podspec
-        env:
-          SAM_FACE_VERSION: "${{github.event.client_payload.sam_face_version}}"
-
       - name: FACE-LITE >> Release dot-face-lite
         run: |
           cd dot-face-lite
@@ -307,6 +299,8 @@ jobs:
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-face-lite.podspec
         env:
           RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+
+###########################################################################################################################################
           
       - name: Push changes
         run: |

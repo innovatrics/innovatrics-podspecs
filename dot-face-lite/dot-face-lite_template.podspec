@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '12.0'
     s.ios.vendored_frameworks = "DotFaceLite/DotFaceLite.xcframework"
 
-    s.ios.dependency 'sam-face', '1.39.2'
     s.ios.dependency 'dot-protobuf', '1.8.0'
     s.ios.dependency 'dot-core', '{version}'
     s.ios.dependency 'dot-capture', '{version}'
