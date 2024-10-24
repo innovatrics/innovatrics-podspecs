@@ -1,17 +1,19 @@
 Pod::Spec.new do |s|
-    s.name              = 'sam-face'
+    s.name              = 'dot-palm-detection'
     s.version           = '{version}'
-    s.summary           = 'sam-face'
+    s.summary           = 'DOT iOS Palm Detection'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'SamFace/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotPalmDetection/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/sam-face/#{s.version}/SamFace.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-palm-detection/#{s.version}/DotPalmDetection.zip" }
     s.ios.deployment_target = '12.0'
-    s.ios.vendored_frameworks = "SamFace/SamFace.xcframework"
+    s.ios.vendored_frameworks = "DotPalmDetection/DotPalmDetection.xcframework"
+
+    s.ios.dependency 'dot-palm-core', '{version}'
 end
 
 # '0.1' exact version 0.1
