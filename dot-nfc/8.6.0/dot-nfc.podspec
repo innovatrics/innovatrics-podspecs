@@ -1,22 +1,21 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-palm-core'
-    s.version           = '{version}'
-    s.summary           = 'DOT iOS Palm Core'
+    s.name              = 'dot-nfc'
+    s.version           = '8.6.0'
+    s.summary           = 'DOT NFC framework'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotPalmCore/LICENSE' }
+    s.license           = { :type => 'MIT', :file => 'DotNfc/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-palm-core/#{s.version}/DotPalmCore.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-nfc/#{s.version}/DotNfc.zip" }
     s.ios.deployment_target = '12.0'
-    s.ios.vendored_frameworks = 'DotPalmCore/DotPalmCore.xcframework'
+    s.ios.vendored_frameworks = "DotNfc/DotNfc.xcframework"
 
-    s.ios.dependency 'dot-protobuf', '1.10.0'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-capture', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
+    s.ios.dependency 'dot-openssl', '1.2.1'
+    s.ios.dependency 'dot-core', '8.6.0'
+    s.ios.dependency 'dot-document-commons', '8.6.0'
 end
 
 # '0.1' exact version 0.1
