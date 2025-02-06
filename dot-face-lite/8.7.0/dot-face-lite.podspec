@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-face-lite'
-    s.version           = '{version}'
+    s.version           = '8.7.0'
     s.summary           = 'DOT iOS Face Lite'
     s.homepage          = 'https://www.innovatrics.com'
 
@@ -14,10 +14,10 @@ Pod::Spec.new do |s|
     s.ios.vendored_frameworks = "DotFaceLite/DotFaceLite.xcframework"
 
     s.ios.dependency 'dot-protobuf', '1.12.0'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-capture', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
-    s.ios.dependency 'dot-face-commons', '{version}'
+    s.ios.dependency 'dot-core', '8.7.0'
+    s.ios.dependency 'dot-capture', '8.7.0'
+    s.ios.dependency 'dot-camera', '8.7.0'
+    s.ios.dependency 'dot-face-commons', '8.7.0'
 end
 
 # '0.1' exact version 0.1
