@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
     s.ios.dependency 'iface', '5.1.2'
     s.ios.dependency 'dot-protobuf', '1.12.0'
     s.ios.dependency 'dot-core', '{version}'
+    s.ios.dependency 'dot-serialization', '{version}'
     s.ios.dependency 'dot-capture', '{version}'
     s.ios.dependency 'dot-camera', '{version}'
     s.ios.dependency 'dot-face-commons', '{version}'
