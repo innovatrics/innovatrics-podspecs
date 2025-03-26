@@ -104,6 +104,14 @@ jobs:
           sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-document_template.podspec
         env:
           PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
+          
+      - name: SHARED >> Update dot-protobuf dependency version for dot-nfc
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-nfc
+          sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-nfc_template.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
 
       - name: SHARED >> Update dot-protobuf dependency version for dot-palm-core
         if: github.event.client_payload.protobuf_version != ''

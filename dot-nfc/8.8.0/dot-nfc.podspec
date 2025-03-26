@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.ios.vendored_frameworks = "DotNfc/DotNfc.xcframework"
 
     s.ios.dependency 'dot-openssl', '1.2.1'
-    s.ios.dependency 'dot-protobuf', '1.12.0'
+    s.ios.dependency 'dot-protobuf', '1.13.0'
     s.ios.dependency 'dot-core', '8.8.0'
     s.ios.dependency 'dot-serialization', '8.8.0'
     s.ios.dependency 'dot-document-commons', '8.8.0'
