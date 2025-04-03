@@ -1,19 +1,17 @@
 Pod::Spec.new do |s|
-    s.name              = 'iface'
-    s.version           = '{version}'
-    s.summary           = 'iface'
+    s.name              = 'onnx'
+    s.version           = '6.5.0'
+    s.summary           = 'onnx'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'IFace/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'Onnx/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface/#{s.version}/IFace.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/onnx/#{s.version}/Onnx.zip" }
     s.ios.deployment_target = '12.0'
-    s.ios.vendored_frameworks = "IFace/iface.xcframework"
-
-    s.ios.dependency 'onnx', '6.5.0'
+    s.ios.vendored_frameworks = "Onnx/innoonnxruntime.xcframework"
 
 end
 
