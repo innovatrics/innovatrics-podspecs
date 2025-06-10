@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-palm-core'
-    s.version           = '{version}'
+    s.version           = '8.12.1'
     s.summary           = 'DOT iOS Palm Core'
     s.homepage          = 'https://www.innovatrics.com'
 
@@ -14,10 +14,10 @@ Pod::Spec.new do |s|
     s.ios.vendored_frameworks = 'DotPalmCore/DotPalmCore.xcframework'
 
     s.ios.dependency 'dot-protobuf', '1.14.1'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-serialization', '{version}'
-    s.ios.dependency 'dot-capture', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
+    s.ios.dependency 'dot-core', '8.12.1'
+    s.ios.dependency 'dot-serialization', '8.12.1'
+    s.ios.dependency 'dot-capture', '8.12.1'
+    s.ios.dependency 'dot-camera', '8.12.1'
 end
 
 # '0.1' exact version 0.1
