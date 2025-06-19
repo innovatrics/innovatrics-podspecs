@@ -1,19 +1,17 @@
 Pod::Spec.new do |s|
-    s.name              = 'iface'
-    s.version           = '{version}'
-    s.summary           = 'iface'
+    s.name              = 'dot-camera'
+    s.version           = '8.13.0'
+    s.summary           = 'DOT iOS Camera'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'IFace/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotCamera/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface/#{s.version}/IFace.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-camera/#{s.version}/DotCamera.zip" }
     s.ios.deployment_target = '12.0'
-    s.ios.vendored_frameworks = "IFace/iface.xcframework"
-
-    s.ios.dependency 'onnx', '6.15.0'
+    s.ios.vendored_frameworks = "DotCamera/DotCamera.xcframework"
 
 end
 
