@@ -1,19 +1,17 @@
 Pod::Spec.new do |s|
-    s.name              = 'iface'
-    s.version           = '{version}'
-    s.summary           = 'iface'
+    s.name              = 'dot-face-commons'
+    s.version           = '8.15.0'
+    s.summary           = 'DOT iOS Face Commons'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'IFace/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceCommons/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/iface/#{s.version}/IFace.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-commons/#{s.version}/DotFaceCommons.zip" }
     s.ios.deployment_target = '12.0'
-    s.ios.vendored_frameworks = "IFace/iface.xcframework"
-
-    s.ios.dependency 'onnx', '6.18.0'
+    s.ios.vendored_frameworks = "DotFaceCommons/DotFaceCommons.xcframework"
 
 end
 
