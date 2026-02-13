@@ -1,24 +1,23 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-document'
-    s.version           = '{version}'
-    s.summary           = 'DOT iOS Document'
+    s.name              = 'dot-palm-core'
+    s.version           = '9.1.0'
+    s.summary           = 'DOT iOS Palm Core'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotDocument/LICENSE' }
+    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotPalmCore/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-document/#{s.version}/DotDocument.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-palm-core/#{s.version}/DotPalmCore.zip" }
     s.ios.deployment_target = '12.0'
-    s.ios.vendored_frameworks = 'DotDocument/DotDocument.xcframework'
+    s.ios.vendored_frameworks = 'DotPalmCore/DotPalmCore.xcframework'
 
     s.ios.dependency 'dot-protobuf', '1.17.0'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-serialization', '{version}'
-    s.ios.dependency 'dot-capture', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
-    s.ios.dependency 'dot-document-commons', '{version}'
+    s.ios.dependency 'dot-core', '9.1.0'
+    s.ios.dependency 'dot-serialization', '9.1.0'
+    s.ios.dependency 'dot-capture', '9.1.0'
+    s.ios.dependency 'dot-camera', '9.1.0'
 end
 
 # '0.1' exact version 0.1
