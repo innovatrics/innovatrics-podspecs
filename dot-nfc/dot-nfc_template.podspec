@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
     s.platform          = :ios
     s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-nfc/#{s.version}/DotNfc.zip" }
-    s.ios.deployment_target = '12.0'
+    s.ios.deployment_target = '13.0'
     s.ios.vendored_frameworks = "DotNfc/DotNfc.xcframework"
 
     s.ios.dependency 'dot-openssl', '1.2.1'
