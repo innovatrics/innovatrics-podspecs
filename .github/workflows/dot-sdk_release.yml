@@ -120,7 +120,15 @@ jobs:
           sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-palm-core_template.podspec
         env:
           PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
-                
+
+      - name: SHARED >> Update dot-protobuf dependency version for dot-fingers-core
+        if: github.event.client_payload.protobuf_version != ''
+        run: |
+          cd dot-fingers-core
+          sed -i "s/    s.ios.dependency 'dot-protobuf'.*$/    s.ios.dependency 'dot-protobuf', '$PROTOBUF_VERSION'/g" dot-fingers-core_template.podspec
+        env:
+          PROTOBUF_VERSION: "${{github.event.client_payload.protobuf_version}}"
+
 ###########################################################################################################################################
 
       - name: NFC >> Release openssl
@@ -195,9 +203,41 @@ jobs:
           sed -i "s/{version}/$RELEASE_VERSION/g" dot-palm-detection.podspec
         env:
           RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
-      
+
 ###########################################################################################################################################
-      
+
+      - name: FINGERS >> Release dot-fingers-core
+        run: |
+          cd dot-fingers-core
+          mkdir $RELEASE_VERSION || true
+          cp -n dot-fingers-core_template.podspec $RELEASE_VERSION/dot-fingers-core.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-fingers-core.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+
+      - name: FINGERS >> Release dot-fingers-detection
+        run: |
+          cd dot-fingers-detection
+          mkdir $RELEASE_VERSION || true
+          cp -n dot-fingers-detection_template.podspec $RELEASE_VERSION/dot-fingers-detection.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-fingers-detection.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+
+      - name: FINGERS >> Release dot-fingers-transformation
+        run: |
+          cd dot-fingers-transformation
+          mkdir $RELEASE_VERSION || true
+          cp -n dot-fingers-transformation_template.podspec $RELEASE_VERSION/dot-fingers-transformation.podspec || true
+          cd $RELEASE_VERSION
+          sed -i "s/{version}/$RELEASE_VERSION/g" dot-fingers-transformation.podspec
+        env:
+          RELEASE_VERSION: "${{github.event.client_payload.release_version}}"
+
+###########################################################################################################################################
+
       - name: FACE >> Release onnx
         if: github.event.client_payload.iface_version != '' && github.event.client_payload.onnx_version != ''
         run: |
