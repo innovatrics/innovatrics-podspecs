@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.ios.vendored_frameworks = "DotFaceCore/DotFaceCore.xcframework"
 
     s.ios.dependency 'iface', '6.24.0'
-    s.ios.dependency 'dot-protobuf', '1.17.0'
+    s.ios.dependency 'dot-protobuf', '1.19.0'
     s.ios.dependency 'dot-core', '{version}'
     s.ios.dependency 'dot-serialization', '{version}'
     s.ios.dependency 'dot-capture', '{version}'

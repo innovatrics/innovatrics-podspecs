@@ -1,23 +1,25 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-palm-core'
-    s.version           = '{version}'
-    s.summary           = 'IDV iOS Palm Core'
+    s.name              = 'dot-face-core'
+    s.version           = '9.5.0'
+    s.summary           = 'IDV iOS Face Core'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics IDV License', :file => 'DotPalmCore/LICENSE' }
+    s.license           = { :type => 'Innovatrics IDV License', :file => 'DotFaceCore/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-palm-core/#{s.version}/DotPalmCore.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-face-core/#{s.version}/DotFaceCore.zip" }
     s.ios.deployment_target = '13.0'
-    s.ios.vendored_frameworks = 'DotPalmCore/DotPalmCore.xcframework'
+    s.ios.vendored_frameworks = "DotFaceCore/DotFaceCore.xcframework"
 
+    s.ios.dependency 'iface', '6.24.0'
     s.ios.dependency 'dot-protobuf', '1.19.0'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-serialization', '{version}'
-    s.ios.dependency 'dot-capture', '{version}'
-    s.ios.dependency 'dot-camera', '{version}'
+    s.ios.dependency 'dot-core', '9.5.0'
+    s.ios.dependency 'dot-serialization', '9.5.0'
+    s.ios.dependency 'dot-capture', '9.5.0'
+    s.ios.dependency 'dot-camera', '9.5.0'
+    s.ios.dependency 'dot-face-commons', '9.5.0'
 end
 
 # '0.1' exact version 0.1

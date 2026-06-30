@@ -1,23 +1,18 @@
 Pod::Spec.new do |s|
-    s.name              = 'dot-nfc'
-    s.version           = '{version}'
-    s.summary           = 'IDV NFC framework'
+    s.name              = 'dot-capture'
+    s.version           = '9.5.0'
+    s.summary           = 'IDV iOS Capture'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'MIT', :file => 'DotNfc/LICENSE' }
+    s.license           = { :type => 'Innovatrics IDV License', :file => 'DotCapture/LICENSE' }
 
 
     s.platform          = :ios
-    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-nfc/#{s.version}/DotNfc.zip" }
+    s.source            = { :http => "https://s3.eu-central-1.amazonaws.com/ios-frameworks.innovatrics.com/dot-capture/#{s.version}/DotCapture.zip" }
     s.ios.deployment_target = '13.0'
-    s.ios.vendored_frameworks = "DotNfc/DotNfc.xcframework"
+    s.ios.vendored_frameworks = "DotCapture/DotCapture.xcframework"
 
-    s.ios.dependency 'dot-openssl', '1.2.1'
-    s.ios.dependency 'dot-protobuf', '1.19.0'
-    s.ios.dependency 'dot-core', '{version}'
-    s.ios.dependency 'dot-serialization', '{version}'
-    s.ios.dependency 'dot-document-commons', '{version}'
 end
 
 # '0.1' exact version 0.1
