@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-face-detection'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Face Detection'
+    s.summary           = 'IDV iOS Face Detection'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceDetection/LICENSE' }
+    s.license           = { :type => 'Innovatrics IDV License', :file => 'DotFaceDetection/LICENSE' }
 
 
     s.platform          = :ios

@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-face-lite'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Face Lite'
+    s.summary           = 'IDV iOS Face Lite'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFaceLite/LICENSE' }
+    s.license           = { :type => 'Innovatrics IDV License', :file => 'DotFaceLite/LICENSE' }
 
 
     s.platform          = :ios

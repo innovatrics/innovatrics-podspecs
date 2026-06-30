@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-nfc'
     s.version           = '{version}'
-    s.summary           = 'DOT NFC framework'
+    s.summary           = 'IDV NFC framework'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
