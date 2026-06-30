@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-fingers-core'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Fingers Core'
+    s.summary           = 'IDV iOS Fingers Core'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFingersCore/LICENSE' }
+    s.license           = { :type => 'Innovatrics IDV License', :file => 'DotFingersCore/LICENSE' }
 
 
     s.platform          = :ios

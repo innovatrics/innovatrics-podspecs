@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-face-passive-liveness'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Face Passive Liveness'
+    s.summary           = 'IDV iOS Face Passive Liveness'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotFacePassiveLiveness/LICENSE' }
+    s.license           = { :type => 'Innovatrics IDV License', :file => 'DotFacePassiveLiveness/LICENSE' }
 
 
     s.platform          = :ios

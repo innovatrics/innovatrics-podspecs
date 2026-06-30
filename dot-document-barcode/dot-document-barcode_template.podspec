@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-document-barcode'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Document Barcode'
+    s.summary           = 'IDV iOS Document Barcode'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Marek Hrasna' => 'marek.hrasna@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotDocumentBarcode/LICENSE' }
+    s.license           = { :type => 'Innovatrics IDV License', :file => 'DotDocumentBarcode/LICENSE' }
 
 
     s.platform          = :ios

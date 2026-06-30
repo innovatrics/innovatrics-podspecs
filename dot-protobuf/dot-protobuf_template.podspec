@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
     s.name              = 'dot-protobuf'
     s.version           = '{version}'
-    s.summary           = 'DOT iOS Protocol Buffers'
+    s.summary           = 'IDV iOS Protocol Buffers'
     s.homepage          = 'https://www.innovatrics.com'
 
     s.author            = { 'Jakub Vallo' => 'jakub.vallo@innovatrics.com' }
-    s.license           = { :type => 'Innovatrics DOT License', :file => 'DotProtocolBuffers/LICENSE' }
+    s.license           = { :type => 'Innovatrics IDV License', :file => 'DotProtocolBuffers/LICENSE' }
 
 
     s.platform          = :ios
